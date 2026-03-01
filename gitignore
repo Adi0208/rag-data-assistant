@@ -1,0 +1,53 @@
+# ── Environment & Secrets ─────────────────────────────────────
+.env
+*.env
+!.env.example
+
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# ── Data (generated CSVs — too large for GitHub) ──────────────
+data/*.csv
+data/uploads/
+
+# ── Vector Store (regenerated at runtime) ────────────────────
+backend/vector_store/
+
+# ── GCP Credentials (NEVER commit these) ─────────────────────
+*.json
+service-account*.json
+application_default_credentials.json
+
+# ── Docker ────────────────────────────────────────────────────
+.dockerignore
+
+# ── IDE ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+
+# ── Logs ──────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Pytest / Coverage ─────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/

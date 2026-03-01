@@ -1,0 +1,81 @@
+product_id,product_name,category,subcategory,unit_price,cost_price,stock_quantity,supplier
+PROD-187B16A7,Laptop,Electronics,Electronics,46478.68,32293.36,198,TechWorld Pvt Ltd
+PROD-6A13D41F,Bedsheet,Home,Home,2171.95,1254.86,412,HomeEssentials Co
+PROD-17DF18B5,Curtains,Home,Home,766.96,467.97,485,HomeEssentials Co
+PROD-1001130C,Saree,Clothing,Clothing,4756.33,3096.41,414,FashionHub
+PROD-8D72CF50,Cycle,Sports,Sports,2678.71,1465.61,46,SportZone India
+PROD-F2B52A80,Laptop,Electronics,Electronics,48530.36,19702.28,244,TechWorld Pvt Ltd
+PROD-0637C0D8,Headphones,Electronics,Electronics,73512.8,33848.18,66,TechWorld Pvt Ltd
+PROD-8FD1797E,Bedsheet,Home,Home,9227.42,6028.14,165,HomeEssentials Co
+PROD-3AD6D727,Smartphone,Electronics,Electronics,12668.25,7745.48,72,TechWorld Pvt Ltd
+PROD-E24CB8A4,Smartwatch,Electronics,Electronics,68991.89,47477.99,191,TechWorld Pvt Ltd
+PROD-31695DC7,Cycle,Sports,Sports,1076.95,528.28,69,SportZone India
+PROD-71C4E5EF,Sneakers,Clothing,Clothing,4757.86,3033.39,491,FashionHub
+PROD-BFF3526B,Cricket Bat,Sports,Sports,1640.36,1132.87,355,SportZone India
+PROD-677D768A,Bedsheet,Home,Home,6821.55,4395.37,193,HomeEssentials Co
+PROD-AF5D54EE,Table Lamp,Home,Home,1708.81,1057.15,485,HomeEssentials Co
+PROD-790E63A6,Cycle,Sports,Sports,548.35,318.44,471,SportZone India
+PROD-DADF29A3,Sneakers,Clothing,Clothing,2957.09,2013.8,72,FashionHub
+PROD-E6123478,Cookware Set,Home,Home,2759.96,1917.38,85,HomeEssentials Co
+PROD-8F134EA0,Camera,Electronics,Electronics,53930.94,33371.7,171,TechWorld Pvt Ltd
+PROD-85AB6E7B,Yoga Mat,Sports,Sports,2341.14,1111.72,34,SportZone India
+PROD-261E2C48,Table Lamp,Home,Home,7975.69,4914.01,24,HomeEssentials Co
+PROD-C0B127A9,Running Shoes,Sports,Sports,5939.9,4102.87,452,SportZone India
+PROD-6EFF520C,Running Shoes,Sports,Sports,7088.63,3582.38,192,SportZone India
+PROD-6D2426CB,Tablet,Electronics,Electronics,63308.67,36302.25,388,TechWorld Pvt Ltd
+PROD-D535BA9E,Jeans,Clothing,Clothing,2420.05,1548.25,17,FashionHub
+PROD-E55B2CB4,Cookware Set,Home,Home,3526.81,2417.62,37,HomeEssentials Co
+PROD-F8706B59,Bedsheet,Home,Home,8934.35,4005.01,38,HomeEssentials Co
+PROD-AB1FF945,Headphones,Electronics,Electronics,47927.41,27994.08,247,TechWorld Pvt Ltd
+PROD-8B0DE042,Tablet,Electronics,Electronics,75451.94,33915.58,455,TechWorld Pvt Ltd
+PROD-F5D61492,Dumbbells,Sports,Sports,711.38,355.21,498,SportZone India
+PROD-0E7593BC,Jacket,Clothing,Clothing,3575.82,2204.89,373,FashionHub
+PROD-84BE239B,Table Lamp,Home,Home,3324.31,1425.38,201,HomeEssentials Co
+PROD-C2BB799F,Dumbbells,Sports,Sports,718.69,288.3,44,SportZone India
+PROD-53B9F729,Curtains,Home,Home,5062.12,2172.14,105,HomeEssentials Co
+PROD-ECFDE58F,Sneakers,Clothing,Clothing,1670.51,709.27,432,FashionHub
+PROD-66419DA1,Headphones,Electronics,Electronics,63004.25,34103.15,458,TechWorld Pvt Ltd
+PROD-44834CB1,Cookware Set,Home,Home,6596.73,3405.62,189,HomeEssentials Co
+PROD-9D1B6633,Cricket Bat,Sports,Sports,1735.69,717.51,225,SportZone India
+PROD-97EA55D8,Cricket Bat,Sports,Sports,2041.07,980.87,31,SportZone India
+PROD-C22492DC,Sneakers,Clothing,Clothing,3436.1,1462.79,176,FashionHub
+PROD-9A5F63AA,Cycle,Sports,Sports,2050.85,857.86,198,SportZone India
+PROD-8159C0A4,Cycle,Sports,Sports,5589.42,3805.88,293,SportZone India
+PROD-010E83D4,Jacket,Clothing,Clothing,1703.6,883.22,437,FashionHub
+PROD-8EA520A4,Smartwatch,Electronics,Electronics,46125.37,25601.67,292,TechWorld Pvt Ltd
+PROD-A33EDC24,T-Shirt,Clothing,Clothing,4760.5,2545.5,485,FashionHub
+PROD-4CA1DF0A,Jeans,Clothing,Clothing,4098.77,1794.67,216,FashionHub
+PROD-E24F5BD8,Camera,Electronics,Electronics,35395.07,24747.55,321,TechWorld Pvt Ltd
+PROD-7DFE211B,Saree,Clothing,Clothing,1511.07,1017.31,468,FashionHub
+PROD-51E64CDE,Smartphone,Electronics,Electronics,31658.83,16437.47,166,TechWorld Pvt Ltd
+PROD-60974ED2,Curtains,Home,Home,4851.49,3211.88,402,HomeEssentials Co
+PROD-A7D1FB77,Yoga Mat,Sports,Sports,3490.21,1551.26,301,SportZone India
+PROD-6EA27620,Smartphone,Electronics,Electronics,45451.02,19557.44,146,TechWorld Pvt Ltd
+PROD-6C8C7B4E,Air Purifier,Home,Home,3008.3,1794.26,292,HomeEssentials Co
+PROD-661FE965,Yoga Mat,Sports,Sports,1624.94,846.42,316,SportZone India
+PROD-864E4B64,Yoga Mat,Sports,Sports,3346.6,2221.1,353,SportZone India
+PROD-8BC4BBBB,T-Shirt,Clothing,Clothing,3804.02,2572.47,459,FashionHub
+PROD-0CC2B486,Cookware Set,Home,Home,3708.73,2366.52,159,HomeEssentials Co
+PROD-928A2A8B,Air Purifier,Home,Home,8652.23,5238.54,497,HomeEssentials Co
+PROD-CBD3D5EF,Jeans,Clothing,Clothing,1711.26,1066.32,396,FashionHub
+PROD-0E074139,Table Lamp,Home,Home,7422.59,4316.19,45,HomeEssentials Co
+PROD-D58C3016,Jacket,Clothing,Clothing,1292.54,836.52,379,FashionHub
+PROD-465980E0,Cycle,Sports,Sports,6976.36,4508.86,263,SportZone India
+PROD-99030BD0,T-Shirt,Clothing,Clothing,1761.28,972.29,69,FashionHub
+PROD-510DD867,Laptop,Electronics,Electronics,16227.31,10545.79,428,TechWorld Pvt Ltd
+PROD-1013CB12,Laptop,Electronics,Electronics,3611.61,1499.42,184,TechWorld Pvt Ltd
+PROD-A4CCDFA3,Kurta,Clothing,Clothing,2030.25,1094.84,203,FashionHub
+PROD-ABEABAEB,Camera,Electronics,Electronics,3413.49,1746.82,304,TechWorld Pvt Ltd
+PROD-DF356D3A,Dumbbells,Sports,Sports,7695.01,4173.58,282,SportZone India
+PROD-6ACBDFF5,Table Lamp,Home,Home,2052.38,1371.7,383,HomeEssentials Co
+PROD-0E06F972,Headphones,Electronics,Electronics,3167.59,1314.22,437,TechWorld Pvt Ltd
+PROD-7D011775,Jeans,Clothing,Clothing,3341.69,2016.07,137,FashionHub
+PROD-F9231922,Cycle,Sports,Sports,453.4,287.5,392,SportZone India
+PROD-A297628B,Tablet,Electronics,Electronics,73008.72,43382.62,307,TechWorld Pvt Ltd
+PROD-5FE65A3B,Laptop,Electronics,Electronics,20937.84,13432.16,156,TechWorld Pvt Ltd
+PROD-CD51CEBB,Air Purifier,Home,Home,9006.09,5903.27,235,HomeEssentials Co
+PROD-F42CBE35,Bedsheet,Home,Home,4932.63,2975.16,422,HomeEssentials Co
+PROD-963421E3,Cycle,Sports,Sports,1086.8,601.49,339,SportZone India
+PROD-D33AB38C,Curtains,Home,Home,6648.75,3874.33,152,HomeEssentials Co
+PROD-A80DF571,Tablet,Electronics,Electronics,6042.13,4208.39,327,TechWorld Pvt Ltd
+PROD-3CD1952C,Table Lamp,Home,Home,2979.9,1827.66,456,HomeEssentials Co
