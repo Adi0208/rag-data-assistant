@@ -19,7 +19,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY backend/ ./backend/
 COPY frontend/ ./frontend/
-COPY .env.example .env.example
 
 # Create directories needed at runtime
 RUN mkdir -p data/uploads backend/vector_store
