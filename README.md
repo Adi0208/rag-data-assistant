@@ -1,47 +1,116 @@
 # 🤖 RAG-Powered Data Assistant on GCP
 
-> **Ask your data warehouse in plain English.** Powered by Gemini AI + BigQuery + LangChain — deployed on Google Cloud Run.
+> **Ask your data warehouse in plain English.** Powered by Gemini AI + BigQuery + RAG pipelines — deployed live on Google Cloud Run.
 
-![Architecture](https://img.shields.io/badge/GCP-BigQuery-blue) ![Gemini](https://img.shields.io/badge/AI-Gemini_Pro-orange) ![FastAPI](https://img.shields.io/badge/Backend-FastAPI-green) ![Cloud Run](https://img.shields.io/badge/Deploy-Cloud_Run-blue)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Available-00e5ff?style=for-the-badge)](https://rag-data-assistant-2pre7ugmmq-uc.a.run.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Adi0208-181717?style=for-the-badge&logo=github)](https://github.com/Adi0208/rag-data-assistant)
+[![GCP](https://img.shields.io/badge/GCP-BigQuery-4285F4?style=for-the-badge&logo=google-cloud)](https://cloud.google.com)
+[![Gemini](https://img.shields.io/badge/AI-Gemini-orange?style=for-the-badge)](https://ai.google.dev)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge)](https://fastapi.tiangolo.com)
+[![Cloud Run](https://img.shields.io/badge/Deploy-Cloud_Run-4285F4?style=for-the-badge)](https://cloud.google.com/run)
 
 ---
 
-## 🎯 What This Does
+## 🌐 Live Demo
 
-This project turns your BigQuery data warehouse into a **conversational AI assistant**. Instead of writing SQL, anyone on your team can ask:
+**Try it now → [https://rag-data-assistant-2pre7ugmmq-uc.a.run.app](https://rag-data-assistant-2pre7ugmmq-uc.a.run.app)**
 
-- *"What were the top 5 selling product categories last quarter?"*
-- *"Which customer segment has the highest return rate?"*
-- *"Show me monthly revenue trends for 2024"*
-- *"What does our return policy say?"* ← answered from uploaded PDFs
+No setup required. Just open and ask a question like:
+- *"What are the top 5 product categories by total revenue?"*
+- *"Which city has the most customers?"*
+- *"What is the return rate for Electronics?"*
 
-The assistant handles **two types of queries**:
-- **Structured** → Natural Language → SQL → BigQuery → Plain English answer
-- **Unstructured** → Question → Vector Search → PDF chunks → Gemini → Answer
+---
+
+## 🎯 What This Project Does
+
+This project turns a BigQuery data warehouse into a **conversational AI assistant**. Instead of writing SQL, anyone can ask business questions in plain English and get instant, accurate answers — powered by Google Gemini AI.
+
+It handles **two types of queries:**
+
+| Query Type | How it works |
+|-----------|-------------|
+| 📊 **Data Questions** | Plain English → Gemini generates SQL → BigQuery executes → Gemini explains results |
+| 📄 **Document Questions** | PDF uploaded → chunked → embedded → vector search → Gemini answers from context |
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-User (Chat UI)
-      │
-      ▼
-FastAPI Backend (Cloud Run)
-      │
-      ├── gemini_sql.py   →  NL → SQL → BigQuery → Answer
-      │
-      └── rag_engine.py   →  PDF chunks → Embeddings → Vector Search → Answer
-                                                              │
-                                              ┌──────────────┴──────────────┐
-                                         BigQuery                    Vector Store
-                                      (Structured Data)          (PDF Documents)
-                                              │                           │
-                                              └──────────┬────────────────┘
-                                                         │
-                                                    Gemini API
-                                              (Text + Embeddings)
+User (Chat UI — Dark/Light Theme)
+         │
+         ▼
+  FastAPI Backend (Google Cloud Run)
+         │
+         ├── gemini_sql.py   →  NL → SQL → BigQuery → Plain English Answer
+         │
+         └── rag_engine.py   →  PDF → Chunks → Embeddings → Vector Search → Answer
+                                                    │                   │
+                                          ┌─────────┴───────┐   ┌──────┴──────┐
+                                       BigQuery          Vector Store
+                                    (Structured Data)   (PDF Documents)
+                                          │                   │
+                                          └────────┬──────────┘
+                                                   │
+                                            Gemini API
+                                     (Text Generation + Embeddings)
+                                                   │
+                                         GCP Secret Manager
+                                          (API Key Storage)
 ```
+
+---
+
+## ✨ Key Features
+
+- 🧠 **Natural Language to SQL** — Gemini converts plain English questions to BigQuery SQL automatically
+- 📄 **PDF RAG Pipeline** — Upload any PDF and ask questions about its contents
+- 🔍 **Transparent AI** — Every answer shows the generated SQL so users can verify accuracy
+- 🌙 **Dark / Light Theme** — Toggle between themes for comfortable viewing
+- 📊 **Data Tables** — Query results displayed as formatted tables with Indian number formatting
+- 🔐 **Production Security** — API keys stored in GCP Secret Manager, never in code
+- ☁️ **Serverless Deployment** — Runs on Google Cloud Run, scales to zero when not in use
+- ⚡ **Real-time** — Answers returned in seconds with typing indicators
+
+---
+
+## 📊 Dataset
+
+The assistant queries a realistic **Indian E-Commerce** dataset loaded in BigQuery:
+
+| Table | Rows | Description |
+|-------|------|-------------|
+| `customers` | 500 | Profiles with city, segment, lifetime value |
+| `products` | 80 | Products across Electronics, Clothing, Home, Sports |
+| `orders` | 2,000 | Orders from 2022–2024 with status and payment method |
+| `order_items` | ~6,000 | Line items per order with quantities and prices |
+| `reviews` | 800 | Product ratings and review text |
+
+**Sample questions you can ask:**
+- Revenue by category, city, or time period
+- Top/bottom performing products
+- Customer segment behavior analysis
+- Return rates and order status breakdowns
+- Payment method distribution
+- Monthly revenue trends
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| AI / LLM | Google Gemini | NL→SQL generation + answer explanation |
+| Embeddings | Gemini Embedding Model | PDF chunk vectorization |
+| Data Warehouse | Google BigQuery | Structured data storage and querying |
+| Vector Store | FAISS | Local vector similarity search |
+| Backend | Python FastAPI | REST API connecting all components |
+| Orchestration | LangChain | AI pipeline management |
+| Deployment | Google Cloud Run | Serverless container hosting |
+| Secrets | GCP Secret Manager | Secure API key storage |
+| Container | Docker | Application containerization |
+| CI/CD | Cloud Build | Automated deployment pipeline |
 
 ---
 
@@ -50,26 +119,28 @@ FastAPI Backend (Cloud Run)
 ```
 rag-data-assistant/
 │
-├── bigquery/
-│   ├── schema.sql            # Table definitions
-│   ├── generate_data.py      # Generates realistic sample data
-│   ├── load_to_bigquery.py   # Uploads CSVs to BigQuery
-│   └── sample_queries.sql    # Test queries to verify data
-│
 ├── backend/
-│   ├── main.py               # FastAPI app + routes         [Phase 4]
-│   ├── gemini_sql.py         # NL → SQL → Answer engine     [Phase 2]
-│   └── rag_engine.py         # PDF RAG pipeline             [Phase 3]
+│   ├── main.py           # FastAPI app + all API endpoints
+│   ├── gemini_sql.py     # NL → SQL → BigQuery → Answer engine
+│   ├── rag_engine.py     # PDF RAG pipeline (chunk → embed → search)
+│   └── secrets.py        # GCP Secret Manager integration
+│
+├── bigquery/
+│   ├── schema.sql        # BigQuery table definitions
+│   ├── generate_data.py  # Realistic sample data generator
+│   ├── load_to_bigquery.py # Data loader script
+│   └── sample_queries.sql  # Verification queries
 │
 ├── frontend/
-│   └── index.html            # Chat UI                      [Phase 5]
+│   └── index.html        # Chat UI (dark/light theme, data tables)
 │
 ├── infra/
-│   ├── Dockerfile            # Container config             [Phase 6]
-│   └── cloudbuild.yaml       # CI/CD to Cloud Run           [Phase 6]
+│   ├── Dockerfile        # Container configuration
+│   ├── cloudbuild.yaml   # CI/CD pipeline
+│   └── deploy.sh         # One-command deployment script
 │
-├── data/                     # Generated CSV files (gitignored)
-├── .env.example              # Environment variable template
+├── data/                 # Generated CSV files (gitignored)
+├── .env.example          # Environment variable template
 ├── .gitignore
 ├── requirements.txt
 └── README.md
@@ -77,102 +148,78 @@ rag-data-assistant/
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Run Locally
 
 ### Prerequisites
 - Python 3.11+
-- Google Cloud account (free tier works!)
-- `gcloud` CLI installed
+- Google Cloud account
+- Gemini API Key (free at [aistudio.google.com](https://aistudio.google.com/app/apikey))
 
-### Step 1 — Clone & Setup
+### Setup
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/rag-data-assistant.git
+# 1. Clone the repo
+git clone https://github.com/Adi0208/rag-data-assistant.git
 cd rag-data-assistant
 
+# 2. Create virtual environment
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
-### Step 2 — Configure Environment
-```bash
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Configure environment
 cp .env.example .env
 # Edit .env with your GCP Project ID and Gemini API Key
-```
 
-Get your **Gemini API Key** free at: https://aistudio.google.com/app/apikey
-
-### Step 3 — Authenticate with GCP
-```bash
+# 5. Authenticate with GCP
 gcloud auth application-default login
-gcloud config set project YOUR_PROJECT_ID
-```
 
-### Step 4 — Generate & Load Sample Data
-```bash
-# Generate CSV files
+# 6. Generate and load sample data
 python bigquery/generate_data.py
-
-# Upload to BigQuery
 python bigquery/load_to_bigquery.py
-```
 
-### Step 5 — Verify Data in BigQuery
-Open `bigquery/sample_queries.sql` in the BigQuery Console and run a few queries to confirm everything loaded correctly.
-
-### Step 6 — Run the App (Phase 4 onwards)
-```bash
+# 7. Start the server
 uvicorn backend.main:app --reload --port 8000
 ```
 
-Open http://localhost:8000 in your browser.
+Open **http://localhost:8000** in your browser.
 
 ---
 
-## 📊 Dataset Overview
+## ☁️ Deploy to Cloud Run
 
-The app uses a realistic **Indian E-Commerce** dataset:
+```bash
+# 1. Store API key in Secret Manager
+echo -n "your-gemini-api-key" | gcloud secrets create GEMINI_API_KEY --data-file=-
 
-| Table | Rows | Description |
-|-------|------|-------------|
-| customers | 500 | Customer profiles with segments |
-| products | 80 | Products across 4 categories |
-| orders | 2,000 | Orders from 2022–2024 |
-| order_items | ~5,000 | Line items per order |
-| reviews | 800 | Product ratings & text |
+# 2. Build and push Docker image
+docker build -f infra/Dockerfile -t gcr.io/YOUR_PROJECT/rag-data-assistant:latest .
+docker push gcr.io/YOUR_PROJECT/rag-data-assistant:latest
 
-**Sample questions the AI can answer:**
-- Revenue by category, city, or time period
-- Top/bottom performing products
-- Customer segment behavior
-- Return rates & order status breakdowns
-- Payment method distribution
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| AI / LLM | Google Gemini Pro |
-| Embeddings | Gemini Embedding Model |
-| Data Warehouse | Google BigQuery |
-| Vector Store | FAISS (local) → AlloyDB (production) |
-| Backend | Python FastAPI |
-| Orchestration | LangChain |
-| Deployment | Google Cloud Run |
-| CI/CD | Cloud Build |
+# 3. Deploy to Cloud Run
+gcloud run deploy rag-data-assistant \
+  --image=gcr.io/YOUR_PROJECT/rag-data-assistant:latest \
+  --region=us-central1 \
+  --allow-unauthenticated \
+  --set-secrets=GEMINI_API_KEY=GEMINI_API_KEY:latest \
+  --set-env-vars=GCP_PROJECT_ID=YOUR_PROJECT,BIGQUERY_DATASET=ecommerce
+```
 
 ---
 
-## 🔮 Roadmap
+## 🔌 API Endpoints
 
-- [x] Phase 1 — Dataset + BigQuery setup
-- [ ] Phase 2 — Gemini NL→SQL engine
-- [ ] Phase 3 — PDF RAG pipeline
-- [ ] Phase 4 — FastAPI backend
-- [ ] Phase 5 — Chat UI
-- [ ] Phase 6 — Cloud Run deployment
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| `GET` | `/api/health` | Health check |
+| `POST` | `/api/ask-data` | Ask a data question (NL→SQL→Answer) |
+| `POST` | `/api/upload-pdf` | Upload and ingest a PDF |
+| `POST` | `/api/ask-doc` | Ask a question about a PDF |
+| `GET` | `/api/documents` | List ingested documents |
+| `GET` | `/api/sample-questions` | Get sample questions |
+| `GET` | `/docs` | Interactive API documentation |
 
 ---
 
@@ -180,9 +227,10 @@ The app uses a realistic **Indian E-Commerce** dataset:
 
 **Aditya Kumar Gautam** — Cloud Data Engineer | GCP | AI-Ready Architectures
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/aditya-kumar-gautam-421a09185/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green)](https://adi0208.github.io/AdityaPortfolio/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/aditya-kumar-gautam-421a09185/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-00e5ff?style=for-the-badge)](https://adi0208.github.io/AdityaPortfolio/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/Adi0208)
 
 ---
 
-*Built to showcase modern AI-era data engineering on Google Cloud Platform.*
+*Built to demonstrate production-grade AI data engineering on Google Cloud Platform — RAG pipelines, NL→SQL generation, Secret Manager integration, and serverless deployment.*
